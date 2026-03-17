@@ -44,13 +44,15 @@ if command -v claude >/dev/null 2>&1; then
   green "  ✅ Claude Code $(claude --version 2>/dev/null | head -1 || echo '')"
 else
   yellow "  ⚠️  Claude Code not found."
-  read -r -p "     Install it now via npm? [Y/n] " INSTALL_CLAUDE
+  read -r -p "     Install it now via npm? [Y/n] " INSTALL_CLAUDE || true
   if [[ "$(echo "$INSTALL_CLAUDE" | tr '[:upper:]' '[:lower:]')" != "n" ]]; then
     echo "     Installing Claude Code..."
-    npm install -g @anthropic-ai/claude-code --silent \
-      && green "  ✅ Claude Code installed" \
-      || { red "  ❌ Install failed. Visit https://claude.ai/code to install manually."; }
-    echo "     👉 Run 'claude' to log in before using Logger."
+    if npm install -g @anthropic-ai/claude-code --silent; then
+      green "  ✅ Claude Code installed"
+      echo "     👉 Run 'claude' to log in before using Logger."
+    else
+      red "  ❌ Install failed. Visit https://claude.ai/code to install manually."
+    fi
   else
     yellow "     Skipped. Install Claude Code later from https://claude.ai/code"
     echo "     Logger is installed but won't work until Claude Code is set up."
@@ -68,7 +70,7 @@ build_mcp() {
   local dest="$HOME/mcp-servers/$name"
   mkdir -p "$dest"
   cp -r "$src/"* "$dest/"
-  cd "$dest" && npm install --silent && npm run build --silent
+  (cd "$dest" && npm install --silent && npm run build --silent)
   green "  ✅ $name"
 }
 
@@ -120,7 +122,7 @@ fi
 
 echo ""
 
-# ── Install the Claude Code skill ─────────────────────────────────────────────
+# ── Install the Logger skill ───────────────────────────────────────────────────
 echo "📦 Installing Logger skill..."
 SKILL="$REPO_DIR/skill/logger-engagement.skill"
 if [ -f "$SKILL" ]; then
@@ -133,7 +135,7 @@ fi
 echo ""
 
 # ── Dock shortcut (optional) ──────────────────────────────────────────────────
-read -r -p "📌 Create a Logger app in ~/Applications for quick Dock access? [y/N] " DOCK
+read -r -p "📌 Create a Logger app in ~/Applications for quick Dock access? [y/N] " DOCK || true
 if [[ "$(echo "$DOCK" | tr '[:upper:]' '[:lower:]')" == "y" ]]; then
   bash "$REPO_DIR/setup-launcher-mac.sh" "$REPO_DIR"
 fi
