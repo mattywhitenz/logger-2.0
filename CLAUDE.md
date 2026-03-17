@@ -854,7 +854,7 @@ On success, tell the user:
    ```bash
    bash upgrade.sh
    ```
-   Run this from the Logger repo directory (wherever the user cloned it — typically `~/logger`). This script: checks GitHub (`https://github.com/mattywhitenz/na4v`) for the latest release, runs `git pull origin main`, rebuilds both MCP servers, updates Claude Desktop config, and copies the latest products data.
+   Run this from the Logger repo directory (wherever the user cloned it — typically `~/logger`). This script: checks GitHub (`https://github.com/mattywhitenz/logger-2.0`) for the latest release, runs `git pull origin main`, rebuilds both MCP servers, updates Claude Desktop config, and copies the latest products data.
 
 3. **Run the handshake** (`user_abilities_and_version_control`) to pick up any new abilities or version changes.
 
@@ -884,7 +884,7 @@ If a user asks how to upgrade, tell them:
 >
 > **No git?** Clone fresh from GitHub:
 > ```
-> git clone https://github.com/mattywhitenz/na4v.git ~/logger
+> git clone https://github.com/mattywhitenz/logger-2.0.git ~/logger
 > cd ~/logger && bash install.sh
 > ```
 

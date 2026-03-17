@@ -3,7 +3,7 @@
 # Usage: bash install.sh
 #
 # Or run directly from GitHub:
-#   git clone https://github.com/mattywhitenz/na4v.git ~/logger
+#   git clone https://github.com/mattywhitenz/logger-2.0.git ~/logger
 #   cd ~/logger && bash install.sh
 
 set -euo pipefail
