@@ -124,7 +124,7 @@ echo ""
 
 # ── Dock shortcut (optional) ──────────────────────────────────────────────────
 read -r -p "📌 Create a Logger app in ~/Applications for quick Dock access? [y/N] " DOCK
-if [[ "${DOCK,,}" == "y" ]]; then
+if [[ "$(echo "$DOCK" | tr '[:upper:]' '[:lower:]')" == "y" ]]; then
   bash "$REPO_DIR/setup-launcher-mac.sh" "$REPO_DIR"
 fi
 
