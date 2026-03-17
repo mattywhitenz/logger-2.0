@@ -86,7 +86,9 @@ echo ""
 
 # ── Build webapp ──────────────────────────────────────────────────────────────
 echo "🌐 Building webapp..."
-(cd "$REPO_DIR/webapp" && npm install --silent && npm run build --silent)
+(cd "$REPO_DIR/webapp" && npm install --silent)
+(cd "$REPO_DIR/webapp/client" && npm install --silent)
+(cd "$REPO_DIR/webapp" && npm run build --silent)
 green "  ✅ Webapp built"
 
 echo ""
