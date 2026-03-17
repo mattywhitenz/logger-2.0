@@ -147,6 +147,7 @@ echo ""
 read -r -p "📌 Create a Logger app in ~/Applications for quick Dock access? [y/N] " DOCK || true
 if [[ "$(echo "$DOCK" | tr '[:upper:]' '[:lower:]')" == "y" ]]; then
   bash "$REPO_DIR/setup-launcher-mac.sh" "$REPO_DIR"
+  open "$HOME/Applications" 2>/dev/null || true
 fi
 
 echo ""
