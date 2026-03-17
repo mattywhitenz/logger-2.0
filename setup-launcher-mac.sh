@@ -1,6 +1,6 @@
 #!/bin/bash
 # Logger Launcher Setup — Mac
-# Run this once to create a Logger app you can pin to your Dock.
+# Creates two apps: LoggerClaudeCode and LoggerWeb
 
 LOGGER_DIR="$1"
 
@@ -18,39 +18,33 @@ if [ ! -f "$LOGGER_DIR/CLAUDE.md" ]; then
     exit 1
 fi
 
-APP_NAME="Logger"
-APP_DIR="$HOME/Applications/$APP_NAME.app"
-SCRIPT_PATH="$APP_DIR/Contents/MacOS/launch.sh"
+mkdir -p "$HOME/Applications"
 
-echo "Creating $APP_NAME.app..."
+# ── App 1: LoggerClaudeCode ───────────────────────────────────────────────────
+CC_APP="$HOME/Applications/LoggerClaudeCode.app"
+mkdir -p "$CC_APP/Contents/MacOS"
+mkdir -p "$CC_APP/Contents/Resources"
 
-# Create app bundle structure
-mkdir -p "$APP_DIR/Contents/MacOS"
-mkdir -p "$APP_DIR/Contents/Resources"
-
-# Create the launch script
-cat > "$SCRIPT_PATH" << LAUNCH
+cat > "$CC_APP/Contents/MacOS/launch.sh" << LAUNCH
 #!/bin/bash
-cd "$LOGGER_DIR"
 osascript -e 'tell application "Terminal"
     activate
     do script "cd \"$LOGGER_DIR\" && claude --dangerously-skip-permissions"
 end tell'
 LAUNCH
-chmod +x "$SCRIPT_PATH"
+chmod +x "$CC_APP/Contents/MacOS/launch.sh"
 
-# Create Info.plist
-cat > "$APP_DIR/Contents/Info.plist" << PLIST
+cat > "$CC_APP/Contents/Info.plist" << PLIST
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
 <plist version="1.0">
 <dict>
     <key>CFBundleName</key>
-    <string>Logger</string>
+    <string>LoggerClaudeCode</string>
     <key>CFBundleDisplayName</key>
-    <string>Logger</string>
+    <string>LoggerClaudeCode</string>
     <key>CFBundleIdentifier</key>
-    <string>com.servicenow.logger</string>
+    <string>com.servicenow.logger.claudecode</string>
     <key>CFBundleVersion</key>
     <string>2.0</string>
     <key>CFBundleExecutable</key>
@@ -63,12 +57,66 @@ cat > "$APP_DIR/Contents/Info.plist" << PLIST
 </plist>
 PLIST
 
+echo "  ✅ LoggerClaudeCode.app created"
+
+# ── App 2: LoggerWeb ──────────────────────────────────────────────────────────
+WEB_APP="$HOME/Applications/LoggerWeb.app"
+mkdir -p "$WEB_APP/Contents/MacOS"
+mkdir -p "$WEB_APP/Contents/Resources"
+
+cat > "$WEB_APP/Contents/MacOS/launch.sh" << LAUNCH
+#!/bin/bash
+LOGGER_DIR="$LOGGER_DIR"
+WEBAPP_DIR="\$LOGGER_DIR/webapp"
+PORT=3001
+
+# Check if already running
+if lsof -ti:"\$PORT" >/dev/null 2>&1; then
+    open "http://localhost:\$PORT"
+    exit 0
+fi
+
+# Start the server in background
+osascript -e 'tell application "Terminal"
+    activate
+    do script "cd \"'"$LOGGER_DIR"'/webapp\" && npm start; exec bash"
+end tell'
+
+# Wait for server to start then open browser
+sleep 3
+open "http://localhost:\$PORT"
+LAUNCH
+chmod +x "$WEB_APP/Contents/MacOS/launch.sh"
+
+cat > "$WEB_APP/Contents/Info.plist" << PLIST
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+    <key>CFBundleName</key>
+    <string>LoggerWeb</string>
+    <key>CFBundleDisplayName</key>
+    <string>LoggerWeb</string>
+    <key>CFBundleIdentifier</key>
+    <string>com.servicenow.logger.web</string>
+    <key>CFBundleVersion</key>
+    <string>2.0</string>
+    <key>CFBundleExecutable</key>
+    <string>launch.sh</string>
+    <key>CFBundlePackageType</key>
+    <string>APPL</string>
+    <key>LSUIElement</key>
+    <true/>
+</dict>
+</plist>
+PLIST
+
+echo "  ✅ LoggerWeb.app created"
+
 echo ""
-echo "✅ Logger.app created at: $APP_DIR"
+echo "Both apps created in ~/Applications."
 echo ""
 echo "To pin to your Dock:"
 echo "  1. Open Finder → Go → Home → Applications"
-echo "  2. Drag Logger.app to your Dock"
+echo "  2. Drag LoggerClaudeCode and/or LoggerWeb to your Dock"
 echo ""
-echo "Or open it now with:"
-echo "  open $APP_DIR"

@@ -1186,7 +1186,7 @@ If `requests` disabled: remove #requests, #engagement (and renumber).
 
 ### #version
 
-Show the version from the handshake response.
+Show the version from the handshake response. The local version is **2.0.0-20260318**.
 
 ---
 
