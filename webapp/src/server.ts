@@ -38,7 +38,7 @@ app.use('/api/timeline', timelineRouter)
 app.use('/api/account-opps', accountOppsRouter)
 
 // Serve built client in production
-const clientDist = path.join(path.dirname(new URL(import.meta.url).pathname), '..', 'dist', 'client')
+const clientDist = path.join(__dirname, '..', 'dist', 'client')
 app.use(express.static(clientDist))
 app.get('*', (_req, res) => {
   res.sendFile(path.join(clientDist, 'index.html'))
