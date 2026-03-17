@@ -84,6 +84,13 @@ green "  ✅ Products data seeded"
 
 echo ""
 
+# ── Build webapp ──────────────────────────────────────────────────────────────
+echo "🌐 Building webapp..."
+(cd "$REPO_DIR/webapp" && npm install --silent && npm run build --silent)
+green "  ✅ Webapp built"
+
+echo ""
+
 # ── Configure Claude Desktop ──────────────────────────────────────────────────
 echo "⚙️  Configuring Claude Desktop..."
 
