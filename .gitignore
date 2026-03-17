@@ -1,0 +1,19 @@
+# User data — never commit
+.logger-config
+.logger-products.json
+.logger-logged.json
+.logger-cache/
+
+# Dependencies & build output
+webapp/node_modules/
+webapp/client/node_modules/
+webapp/dist/
+webapp/client/dist/
+webapp/mcp-servers.json
+mcp-servers/*/node_modules/
+mcp-servers/*/dist/
+
+# OS
+.DS_Store
+**/.DS_Store
+Thumbs.db

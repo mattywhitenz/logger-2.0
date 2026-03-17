@@ -1,0 +1,431 @@
+{
+  "_cachedAt": "2026-03-16T00:00:00.000Z",
+  "_key": "products",
+  "_bundled": true,
+  "data": [
+    {
+      "sn_name": "AI Agents",
+      "@odata.id": "https://servicenow.crm.dynamics.com/api/data/v9.1.0/sn_productfamilies(40967ade-6f66-f011-bec1-00224830ef13)"
+    },
+    {
+      "sn_name": "AI Control Tower",
+      "@odata.id": "https://servicenow.crm.dynamics.com/api/data/v9.1.0/sn_productfamilies(42967ade-6f66-f011-bec1-00224830ef13)"
+    },
+    {
+      "sn_name": "ALE-Customer Success",
+      "@odata.id": "https://servicenow.crm.dynamics.com/api/data/v9.1.0/sn_productfamilies(b8af7146-6c61-ef11-bfe2-000d3a9c16c4)"
+    },
+    {
+      "sn_name": "API Insights",
+      "@odata.id": "https://servicenow.crm.dynamics.com/api/data/v9.1.0/sn_productfamilies(9c11bbfd-6b61-ef11-bfe2-000d3a9c16c4)"
+    },
+    {
+      "sn_name": "Accounts Payable Operations",
+      "@odata.id": "https://servicenow.crm.dynamics.com/api/data/v9.1.0/sn_productfamilies(528b4c47-a4db-ee11-904c-6045bdedaac6)"
+    },
+    {
+      "sn_name": "App Engine",
+      "@odata.id": "https://servicenow.crm.dynamics.com/api/data/v9.1.0/sn_productfamilies(e5b467ba-6e73-eb11-a812-000d3a1c68d1)"
+    },
+    {
+      "sn_name": "App Engine for ERP",
+      "@odata.id": "https://servicenow.crm.dynamics.com/api/data/v9.1.0/sn_productfamilies(d407fb54-a4db-ee11-904c-6045bdedaac6)"
+    },
+    {
+      "sn_name": "Automation Engine",
+      "@odata.id": "https://servicenow.crm.dynamics.com/api/data/v9.1.0/sn_productfamilies(c51cf453-17e1-eb11-bacb-000d3a8b501f)"
+    },
+    {
+      "sn_name": "Clinical Device Management",
+      "@odata.id": "https://servicenow.crm.dynamics.com/api/data/v9.1.0/sn_productfamilies(a2bbe08e-a3db-ee11-904c-6045bdedaac6)"
+    },
+    {
+      "sn_name": "Cloud Observability",
+      "@odata.id": "https://servicenow.crm.dynamics.com/api/data/v9.1.0/sn_productfamilies(e6c3a91b-b4e2-ec11-bb3d-00224824728c)"
+    },
+    {
+      "sn_name": "Cloud Solutions",
+      "@odata.id": "https://servicenow.crm.dynamics.com/api/data/v9.1.0/sn_productfamilies(3ae2be09-6c61-ef11-bfe2-000d3a9c16c4)"
+    },
+    {
+      "sn_name": "Collaborative Work Management",
+      "@odata.id": "https://servicenow.crm.dynamics.com/api/data/v9.1.0/sn_productfamilies(07aac1e5-6b61-ef11-bfe2-000d3a9c16c4)"
+    },
+    {
+      "sn_name": "Collaborative Work Management",
+      "@odata.id": "https://servicenow.crm.dynamics.com/api/data/v9.1.0/sn_productfamilies(cc909daf-a3db-ee11-904c-6045bdedaac6)"
+    },
+    {
+      "sn_name": "Connected Operations",
+      "@odata.id": "https://servicenow.crm.dynamics.com/api/data/v9.1.0/sn_productfamilies(e2b467ba-6e73-eb11-a812-000d3a1c68d1)"
+    },
+    {
+      "sn_name": "Contracts Management Pro",
+      "@odata.id": "https://servicenow.crm.dynamics.com/api/data/v9.1.0/sn_productfamilies(da23b10b-a4db-ee11-904c-6045bdedaac6)"
+    },
+    {
+      "sn_name": "Core Business Suite",
+      "@odata.id": "https://servicenow.crm.dynamics.com/api/data/v9.1.0/sn_productfamilies(44967ade-6f66-f011-bec1-00224830ef13)"
+    },
+    {
+      "sn_name": "Customer Service Management",
+      "@odata.id": "https://servicenow.crm.dynamics.com/api/data/v9.1.0/sn_productfamilies(e0b467ba-6e73-eb11-a812-000d3a1c68d1)"
+    },
+    {
+      "sn_name": "DevOps",
+      "@odata.id": "https://servicenow.crm.dynamics.com/api/data/v9.1.0/sn_productfamilies(ac6c6fb4-6e73-eb11-a812-000d3a1c68d1)"
+    },
+    {
+      "sn_name": "Device-as-a-Service",
+      "@odata.id": "https://servicenow.crm.dynamics.com/api/data/v9.1.0/sn_productfamilies(4fe1be09-6c61-ef11-bfe2-000d3a9c16c4)"
+    },
+    {
+      "sn_name": "Digital End-User Experience",
+      "@odata.id": "https://servicenow.crm.dynamics.com/api/data/v9.1.0/sn_productfamilies(5257c8eb-6b61-ef11-bfe2-000d3a9c16c4)"
+    },
+    {
+      "sn_name": "Digital Product Release Management",
+      "@odata.id": "https://servicenow.crm.dynamics.com/api/data/v9.1.0/sn_productfamilies(ed4c1fb7-a3db-ee11-904c-6045bdedaac6)"
+    },
+    {
+      "sn_name": "EAM for OT",
+      "@odata.id": "https://servicenow.crm.dynamics.com/api/data/v9.1.0/sn_productfamilies(36955e97-6b61-ef11-bfe2-000d3a9c16c4)"
+    },
+    {
+      "sn_name": "Employee Center Pro",
+      "@odata.id": "https://servicenow.crm.dynamics.com/api/data/v9.1.0/sn_productfamilies(fef3232e-aba1-ed11-aad1-00224825a4c3)"
+    },
+    {
+      "sn_name": "Employee Services Foundation",
+      "@odata.id": "https://servicenow.crm.dynamics.com/api/data/v9.1.0/sn_productfamilies(7b993e22-2b9d-ef11-8a69-7c1e520bd8ef)"
+    },
+    {
+      "sn_name": "Enterprise Asset Management",
+      "@odata.id": "https://servicenow.crm.dynamics.com/api/data/v9.1.0/sn_productfamilies(46967ade-6f66-f011-bec1-00224830ef13)"
+    },
+    {
+      "sn_name": "Field Service Management",
+      "@odata.id": "https://servicenow.crm.dynamics.com/api/data/v9.1.0/sn_productfamilies(e1b467ba-6e73-eb11-a812-000d3a1c68d1)"
+    },
+    {
+      "sn_name": "Financial Services Operations",
+      "@odata.id": "https://servicenow.crm.dynamics.com/api/data/v9.1.0/sn_productfamilies(e3b467ba-6e73-eb11-a812-000d3a1c68d1)"
+    },
+    {
+      "sn_name": "Financial Services Operations (FSO) for Visa Disputes",
+      "@odata.id": "https://servicenow.crm.dynamics.com/api/data/v9.1.0/sn_productfamilies(829e74bd-a3db-ee11-904c-6045bdedaac6)"
+    },
+    {
+      "sn_name": "Financial Services Operations for Banking",
+      "@odata.id": "https://servicenow.crm.dynamics.com/api/data/v9.1.0/sn_productfamilies(48967ade-6f66-f011-bec1-00224830ef13)"
+    },
+    {
+      "sn_name": "Financial Services Operations for Insurance",
+      "@odata.id": "https://servicenow.crm.dynamics.com/api/data/v9.1.0/sn_productfamilies(4a967ade-6f66-f011-bec1-00224830ef13)"
+    },
+    {
+      "sn_name": "Global Business Service (GBS)",
+      "@odata.id": "https://servicenow.crm.dynamics.com/api/data/v9.1.0/sn_productfamilies(4ceaab7a-ec66-ee11-9ae7-000d3a1f08ee)"
+    },
+    {
+      "sn_name": "Governance, Risk, and Compliance",
+      "@odata.id": "https://servicenow.crm.dynamics.com/api/data/v9.1.0/sn_productfamilies(ae6c6fb4-6e73-eb11-a812-000d3a1c68d1)"
+    },
+    {
+      "sn_name": "HR Service Delivery",
+      "@odata.id": "https://servicenow.crm.dynamics.com/api/data/v9.1.0/sn_productfamilies(d8b467ba-6e73-eb11-a812-000d3a1c68d1)"
+    },
+    {
+      "sn_name": "Health and Safety",
+      "@odata.id": "https://servicenow.crm.dynamics.com/api/data/v9.1.0/sn_productfamilies(6fbd84a3-b680-ed11-81ad-000d3a1f07da)"
+    },
+    {
+      "sn_name": "Healthcare Operations",
+      "@odata.id": "https://servicenow.crm.dynamics.com/api/data/v9.1.0/sn_productfamilies(5c967ade-6f66-f011-bec1-00224830ef13)"
+    },
+    {
+      "sn_name": "Healthcare and Life Sciences Service Management",
+      "@odata.id": "https://servicenow.crm.dynamics.com/api/data/v9.1.0/sn_productfamilies(375f8f99-9f75-ec11-8943-0022482be6f3)"
+    },
+    {
+      "sn_name": "IT Asset Management",
+      "@odata.id": "https://servicenow.crm.dynamics.com/api/data/v9.1.0/sn_productfamilies(ab6c6fb4-6e73-eb11-a812-000d3a1c68d1)"
+    },
+    {
+      "sn_name": "IT Operations Management",
+      "@odata.id": "https://servicenow.crm.dynamics.com/api/data/v9.1.0/sn_productfamilies(a96c6fb4-6e73-eb11-a812-000d3a1c68d1)"
+    },
+    {
+      "sn_name": "IT Service Management",
+      "@odata.id": "https://servicenow.crm.dynamics.com/api/data/v9.1.0/sn_productfamilies(a86c6fb4-6e73-eb11-a812-000d3a1c68d1)"
+    },
+    {
+      "sn_name": "Impact",
+      "@odata.id": "https://servicenow.crm.dynamics.com/api/data/v9.1.0/sn_productfamilies(4e9fc476-1ed6-ec11-a7b5-00224834636b)"
+    },
+    {
+      "sn_name": "Integration Hub",
+      "@odata.id": "https://servicenow.crm.dynamics.com/api/data/v9.1.0/sn_productfamilies(4c967ade-6f66-f011-bec1-00224830ef13)"
+    },
+    {
+      "sn_name": "Integration Risk Management",
+      "@odata.id": "https://servicenow.crm.dynamics.com/api/data/v9.1.0/sn_productfamilies(4e967ade-6f66-f011-bec1-00224830ef13)"
+    },
+    {
+      "sn_name": "Legal Service Delivery",
+      "@odata.id": "https://servicenow.crm.dynamics.com/api/data/v9.1.0/sn_productfamilies(d9b467ba-6e73-eb11-a812-000d3a1c68d1)"
+    },
+    {
+      "sn_name": "Manufacturing Commercial Operations (MCO)",
+      "@odata.id": "https://servicenow.crm.dynamics.com/api/data/v9.1.0/sn_productfamilies(c9c00825-a4db-ee11-904c-6045bdedaac6)"
+    },
+    {
+      "sn_name": "Manufacturing Commercial Ops",
+      "@odata.id": "https://servicenow.crm.dynamics.com/api/data/v9.1.0/sn_productfamilies(3c8f0d28-6c61-ef11-bfe2-000d3a9c16c4)"
+    },
+    {
+      "sn_name": "Manufacturing Connected Workforce",
+      "@odata.id": "https://servicenow.crm.dynamics.com/api/data/v9.1.0/sn_productfamilies(c0b4f880-9f75-ec11-8943-0022482be6f3)"
+    },
+    {
+      "sn_name": "Media & Entertainment Service Management (M&E SM)",
+      "@odata.id": "https://servicenow.crm.dynamics.com/api/data/v9.1.0/sn_productfamilies(45450019-a4db-ee11-904c-6045bdedaac6)"
+    },
+    {
+      "sn_name": "Moveworks",
+      "@odata.id": "https://servicenow.crm.dynamics.com/api/data/v9.1.0/sn_productfamilies(cf701ea6-0209-f111-8406-000d3a10d08f)"
+    },
+    {
+      "sn_name": "Now Assist for CSM (GenAI)",
+      "@odata.id": "https://servicenow.crm.dynamics.com/api/data/v9.1.0/sn_productfamilies(b1405c5b-a4db-ee11-904c-6045bdedaac6)"
+    },
+    {
+      "sn_name": "Now Assist for Creator (GenAI)",
+      "@odata.id": "https://servicenow.crm.dynamics.com/api/data/v9.1.0/sn_productfamilies(fcb4d170-a4db-ee11-904c-6045bdedaac6)"
+    },
+    {
+      "sn_name": "Now Assist for Employee (GenAI)",
+      "@odata.id": "https://servicenow.crm.dynamics.com/api/data/v9.1.0/sn_productfamilies(63739e77-a4db-ee11-904c-6045bdedaac6)"
+    },
+    {
+      "sn_name": "Now Assist for FSM (GenAI)",
+      "@odata.id": "https://servicenow.crm.dynamics.com/api/data/v9.1.0/sn_productfamilies(a1905461-a4db-ee11-904c-6045bdedaac6)"
+    },
+    {
+      "sn_name": "Now Assist for FSO (GenAI)",
+      "@odata.id": "https://servicenow.crm.dynamics.com/api/data/v9.1.0/sn_productfamilies(0fe81a34-6c61-ef11-bfe2-000d3a9c16c4)"
+    },
+    {
+      "sn_name": "Now Assist for ITSM (GenAI)",
+      "@odata.id": "https://servicenow.crm.dynamics.com/api/data/v9.1.0/sn_productfamilies(c235be6e-8fbe-f011-bbd3-7ced8d1a91e3)"
+    },
+    {
+      "sn_name": "Now Assist for Industry Workflows (GenAI)",
+      "@odata.id": "https://servicenow.crm.dynamics.com/api/data/v9.1.0/sn_productfamilies(00ad7c67-a4db-ee11-904c-6045bdedaac6)"
+    },
+    {
+      "sn_name": "Now Assist for PSDS (GenAI)",
+      "@odata.id": "https://servicenow.crm.dynamics.com/api/data/v9.1.0/sn_productfamilies(6d45133a-6c61-ef11-bfe2-000d3a9c16c4)"
+    },
+    {
+      "sn_name": "Now Assist for SPM (GenAI)",
+      "@odata.id": "https://servicenow.crm.dynamics.com/api/data/v9.1.0/sn_productfamilies(6f8cbbf7-6b61-ef11-bfe2-000d3a9c16c4)"
+    },
+    {
+      "sn_name": "Now Assist for SPO (GenAI)",
+      "@odata.id": "https://servicenow.crm.dynamics.com/api/data/v9.1.0/sn_productfamilies(6628b915-6c61-ef11-bfe2-000d3a9c16c4)"
+    },
+    {
+      "sn_name": "Now Assist for Security (GenAI)",
+      "@odata.id": "https://servicenow.crm.dynamics.com/api/data/v9.1.0/sn_productfamilies(8040b70f-6c61-ef11-bfe2-000d3a9c16c4)"
+    },
+    {
+      "sn_name": "Now Assist for TMT (GenAI)",
+      "@odata.id": "https://servicenow.crm.dynamics.com/api/data/v9.1.0/sn_productfamilies(bc4b1540-6c61-ef11-bfe2-000d3a9c16c4)"
+    },
+    {
+      "sn_name": "Now Assist for Technology (GenAI)",
+      "@odata.id": "https://servicenow.crm.dynamics.com/api/data/v9.1.0/sn_productfamilies(6041997d-a4db-ee11-904c-6045bdedaac6)"
+    },
+    {
+      "sn_name": "Operational Technology Management",
+      "@odata.id": "https://servicenow.crm.dynamics.com/api/data/v9.1.0/sn_productfamilies(38ca95a2-9f75-ec11-8943-0022482be6f3)"
+    },
+    {
+      "sn_name": "Order Management",
+      "@odata.id": "https://servicenow.crm.dynamics.com/api/data/v9.1.0/sn_productfamilies(43002f7d-b680-ed11-81ad-000d3a1f07da)"
+    },
+    {
+      "sn_name": "Order Management for Telecommunications",
+      "@odata.id": "https://servicenow.crm.dynamics.com/api/data/v9.1.0/sn_productfamilies(31bcda87-9f75-ec11-8943-0022482be6f3)"
+    },
+    {
+      "sn_name": "Partner Solution",
+      "@odata.id": "https://servicenow.crm.dynamics.com/api/data/v9.1.0/sn_productfamilies(2750626b-f21d-ed11-b83e-000d3a9d00dd)"
+    },
+    {
+      "sn_name": "Platform Security and Privacy",
+      "@odata.id": "https://servicenow.crm.dynamics.com/api/data/v9.1.0/sn_productfamilies(34d59756-31b2-ed11-83fe-000d3a55fb1c)"
+    },
+    {
+      "sn_name": "Process Mining",
+      "@odata.id": "https://servicenow.crm.dynamics.com/api/data/v9.1.0/sn_productfamilies(5e967ade-6f66-f011-bec1-00224830ef13)"
+    },
+    {
+      "sn_name": "Process Mining EWF",
+      "@odata.id": "https://servicenow.crm.dynamics.com/api/data/v9.1.0/sn_productfamilies(65213bfd-2e2b-ee11-bdf4-000d3a575a0b)"
+    },
+    {
+      "sn_name": "Process Optimization",
+      "@odata.id": "https://servicenow.crm.dynamics.com/api/data/v9.1.0/sn_productfamilies(2ce274b5-b680-ed11-81ad-000d3a1f07da)"
+    },
+    {
+      "sn_name": "Public Sector Digital Services",
+      "@odata.id": "https://servicenow.crm.dynamics.com/api/data/v9.1.0/sn_productfamilies(0cd9238f-b680-ed11-81ad-000d3a1f07da)"
+    },
+    {
+      "sn_name": "RaptorDB",
+      "@odata.id": "https://servicenow.crm.dynamics.com/api/data/v9.1.0/sn_productfamilies(818e292f-2b9d-ef11-8a69-7c1e520bd8ef)"
+    },
+    {
+      "sn_name": "Retail Service Management",
+      "@odata.id": "https://servicenow.crm.dynamics.com/api/data/v9.1.0/sn_productfamilies(9300192e-6c61-ef11-bfe2-000d3a9c16c4)"
+    },
+    {
+      "sn_name": "Retail Store Operations (RSO)",
+      "@odata.id": "https://servicenow.crm.dynamics.com/api/data/v9.1.0/sn_productfamilies(f2a9992b-a4db-ee11-904c-6045bdedaac6)"
+    },
+    {
+      "sn_name": "Safe Workplace Suite",
+      "@odata.id": "https://servicenow.crm.dynamics.com/api/data/v9.1.0/sn_productfamilies(e7b467ba-6e73-eb11-a812-000d3a1c68d1)"
+    },
+    {
+      "sn_name": "Sales and Order Management",
+      "@odata.id": "https://servicenow.crm.dynamics.com/api/data/v9.1.0/sn_productfamilies(c5bcd7c9-a3db-ee11-904c-6045bdedaac6)"
+    },
+    {
+      "sn_name": "Sales and Order Management for Technology Providers",
+      "@odata.id": "https://servicenow.crm.dynamics.com/api/data/v9.1.0/sn_productfamilies(50967ade-6f66-f011-bec1-00224830ef13)"
+    },
+    {
+      "sn_name": "Sales and Order Management for Telecommunications",
+      "@odata.id": "https://servicenow.crm.dynamics.com/api/data/v9.1.0/sn_productfamilies(52967ade-6f66-f011-bec1-00224830ef13)"
+    },
+    {
+      "sn_name": "Security Operations",
+      "@odata.id": "https://servicenow.crm.dynamics.com/api/data/v9.1.0/sn_productfamilies(ad6c6fb4-6e73-eb11-a812-000d3a1c68d1)"
+    },
+    {
+      "sn_name": "Security Posture Control (ASPM)",
+      "@odata.id": "https://servicenow.crm.dynamics.com/api/data/v9.1.0/sn_productfamilies(d7a7e5cf-a3db-ee11-904c-6045bdedaac6)"
+    },
+    {
+      "sn_name": "Service Reliability Management",
+      "@odata.id": "https://servicenow.crm.dynamics.com/api/data/v9.1.0/sn_productfamilies(6418c3f1-6b61-ef11-bfe2-000d3a9c16c4)"
+    },
+    {
+      "sn_name": "Service Reliability Management",
+      "@odata.id": "https://servicenow.crm.dynamics.com/api/data/v9.1.0/sn_productfamilies(b397ba03-6c61-ef11-bfe2-000d3a9c16c4)"
+    },
+    {
+      "sn_name": "ServiceNow App Store",
+      "@odata.id": "https://servicenow.crm.dynamics.com/api/data/v9.1.0/sn_productfamilies(e6b467ba-6e73-eb11-a812-000d3a1c68d1)"
+    },
+    {
+      "sn_name": "ServiceNow EmployeeWorks",
+      "@odata.id": "https://servicenow.crm.dynamics.com/api/data/v9.1.0/sn_productfamilies(1e842d9a-0209-f111-8406-000d3a10d08f)"
+    },
+    {
+      "sn_name": "ServiceNow Platform Encryption",
+      "@odata.id": "https://servicenow.crm.dynamics.com/api/data/v9.1.0/sn_productfamilies(54967ade-6f66-f011-bec1-00224830ef13)"
+    },
+    {
+      "sn_name": "ServiceNow Vault",
+      "@odata.id": "https://servicenow.crm.dynamics.com/api/data/v9.1.0/sn_productfamilies(56967ade-6f66-f011-bec1-00224830ef13)"
+    },
+    {
+      "sn_name": "ServiceOps",
+      "@odata.id": "https://servicenow.crm.dynamics.com/api/data/v9.1.0/sn_productfamilies(7be2f8a1-1fbc-ec11-983f-00224825dfcf)"
+    },
+    {
+      "sn_name": "Smart Operations",
+      "@odata.id": "https://servicenow.crm.dynamics.com/api/data/v9.1.0/sn_productfamilies(fc0d6a4c-6c61-ef11-bfe2-000d3a9c16c4)"
+    },
+    {
+      "sn_name": "Source to Pay Operations",
+      "@odata.id": "https://servicenow.crm.dynamics.com/api/data/v9.1.0/sn_productfamilies(c6dbf440-a4db-ee11-904c-6045bdedaac6)"
+    },
+    {
+      "sn_name": "Source to Pay Service Management",
+      "@odata.id": "https://servicenow.crm.dynamics.com/api/data/v9.1.0/sn_productfamilies(20cae65d-6791-eb11-b1ac-000d3a1f51f0)"
+    },
+    {
+      "sn_name": "Sourcing and Procurement Operations",
+      "@odata.id": "https://servicenow.crm.dynamics.com/api/data/v9.1.0/sn_productfamilies(10373f33-a4db-ee11-904c-6045bdedaac6)"
+    },
+    {
+      "sn_name": "Strategic Portfolio Management",
+      "@odata.id": "https://servicenow.crm.dynamics.com/api/data/v9.1.0/sn_productfamilies(aa6c6fb4-6e73-eb11-a812-000d3a1c68d1)"
+    },
+    {
+      "sn_name": "Strategic Portfolio Management for Telecom (SPMT)",
+      "@odata.id": "https://servicenow.crm.dynamics.com/api/data/v9.1.0/sn_productfamilies(0c482cdc-a3db-ee11-904c-6045bdedaac6)"
+    },
+    {
+      "sn_name": "Supplier Lifecycle Operations",
+      "@odata.id": "https://servicenow.crm.dynamics.com/api/data/v9.1.0/sn_productfamilies(b429ea9c-b680-ed11-81ad-000d3a1f07da)"
+    },
+    {
+      "sn_name": "Supplier Lifecycle Operations",
+      "@odata.id": "https://servicenow.crm.dynamics.com/api/data/v9.1.0/sn_productfamilies(effa244e-a4db-ee11-904c-6045bdedaac6)"
+    },
+    {
+      "sn_name": "Talent Acquisition",
+      "@odata.id": "https://servicenow.crm.dynamics.com/api/data/v9.1.0/sn_productfamilies(8edd56e2-a3db-ee11-904c-6045bdedaac6)"
+    },
+    {
+      "sn_name": "Talent Development",
+      "@odata.id": "https://servicenow.crm.dynamics.com/api/data/v9.1.0/sn_productfamilies(e03384a9-b680-ed11-81ad-000d3a1f07da)"
+    },
+    {
+      "sn_name": "Technology Provider Service Management (TPSM)",
+      "@odata.id": "https://servicenow.crm.dynamics.com/api/data/v9.1.0/sn_productfamilies(920c0e1f-a4db-ee11-904c-6045bdedaac6)"
+    },
+    {
+      "sn_name": "Telecommunications Network Performance Management",
+      "@odata.id": "https://servicenow.crm.dynamics.com/api/data/v9.1.0/sn_productfamilies(d7b467ba-6e73-eb11-a812-000d3a1c68d1)"
+    },
+    {
+      "sn_name": "Telecommunications Service Management",
+      "@odata.id": "https://servicenow.crm.dynamics.com/api/data/v9.1.0/sn_productfamilies(e4b467ba-6e73-eb11-a812-000d3a1c68d1)"
+    },
+    {
+      "sn_name": "Telecommunications Service Operations Management",
+      "@odata.id": "https://servicenow.crm.dynamics.com/api/data/v9.1.0/sn_productfamilies(451a0971-9f75-ec11-8943-0022482be6f3)"
+    },
+    {
+      "sn_name": "Third-party Risk Management",
+      "@odata.id": "https://servicenow.crm.dynamics.com/api/data/v9.1.0/sn_productfamilies(58967ade-6f66-f011-bec1-00224830ef13)"
+    },
+    {
+      "sn_name": "Threat Intelligence Security Center",
+      "@odata.id": "https://servicenow.crm.dynamics.com/api/data/v9.1.0/sn_productfamilies(683fccd3-6b61-ef11-bfe2-000d3a9c16c4)"
+    },
+    {
+      "sn_name": "Threat Intelligence Security Center",
+      "@odata.id": "https://servicenow.crm.dynamics.com/api/data/v9.1.0/sn_productfamilies(aadd56e2-a3db-ee11-904c-6045bdedaac6)"
+    },
+    {
+      "sn_name": "Workflow Data Fabric",
+      "@odata.id": "https://servicenow.crm.dynamics.com/api/data/v9.1.0/sn_productfamilies(5a967ade-6f66-f011-bec1-00224830ef13)"
+    },
+    {
+      "sn_name": "Workforce Optimization",
+      "@odata.id": "https://servicenow.crm.dynamics.com/api/data/v9.1.0/sn_productfamilies(e3789cc1-46f0-ed11-8849-000d3a1f07da)"
+    },
+    {
+      "sn_name": "Workplace Service Delivery",
+      "@odata.id": "https://servicenow.crm.dynamics.com/api/data/v9.1.0/sn_productfamilies(dfb467ba-6e73-eb11-a812-000d3a1c68d1)"
+    }
+  ]
+}
