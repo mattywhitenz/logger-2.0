@@ -39,12 +39,22 @@ command -v jq >/dev/null 2>&1 || {
 }
 green "  ✅ jq"
 
-# Check for claude (warn only — user may not have it yet)
+# Check for claude — required to run Logger
 if command -v claude >/dev/null 2>&1; then
   green "  ✅ Claude Code $(claude --version 2>/dev/null | head -1 || echo '')"
 else
-  yellow "  ⚠️  Claude Code not found in PATH. Install from https://claude.ai/code"
-  echo "     (You can still install Logger now and add Claude Code later.)"
+  yellow "  ⚠️  Claude Code not found."
+  read -r -p "     Install it now via npm? [Y/n] " INSTALL_CLAUDE
+  if [[ "$(echo "$INSTALL_CLAUDE" | tr '[:upper:]' '[:lower:]')" != "n" ]]; then
+    echo "     Installing Claude Code..."
+    npm install -g @anthropic-ai/claude-code --silent \
+      && green "  ✅ Claude Code installed" \
+      || { red "  ❌ Install failed. Visit https://claude.ai/code to install manually."; }
+    echo "     👉 Run 'claude' to log in before using Logger."
+  else
+    yellow "     Skipped. Install Claude Code later from https://claude.ai/code"
+    echo "     Logger is installed but won't work until Claude Code is set up."
+  fi
 fi
 
 echo ""
