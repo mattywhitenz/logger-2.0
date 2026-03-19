@@ -60,8 +60,14 @@ else
   if [[ "$(echo "$INSTALL_CLAUDE" | tr '[:upper:]' '[:lower:]')" != "n" ]]; then
     echo "     Installing Claude Code..."
     if curl -fsSL https://claude.ai/install.sh | bash; then
+      # Add to PATH for this session
+      export PATH="$HOME/.local/bin:$PATH"
       green "  ✅ Claude Code installed"
-      echo "     👉 Run 'claude' to log in before using Logger."
+      # Add to shell profile if not already there
+      if ! grep -q '.local/bin' "$HOME/.zshrc" 2>/dev/null; then
+        echo 'export PATH="$HOME/.local/bin:$PATH"' >> "$HOME/.zshrc"
+        green "  ✅ Added to ~/.zshrc PATH"
+      fi
     else
       red "  ❌ Install failed. Visit https://claude.ai/download to install manually."
     fi
@@ -168,10 +174,18 @@ echo ""
 VERSION=$(cat "$REPO_DIR/VERSION" 2>/dev/null | tr -d '[:space:]' || echo "2.0")
 green "✅ Logger v$VERSION installed!"
 echo ""
-echo "  Next steps:"
-echo "  1. Quit and reopen Claude Desktop"
-echo "  2. Open a new chat and type: #start"
-echo "     (It will ask for your API key and email on first run)"
-echo ""
-yellow "  Need an API key? Logger will request one for you automatically on first run."
-echo ""
+
+# Launch Claude Code to run first-time setup (API key, webhooks, cache warm-up)
+if command -v claude >/dev/null 2>&1; then
+  echo ""
+  bold "🐸 Launching Logger for first-time setup..."
+  echo "   Claude will walk you through API key, email, and Power Automate webhook setup."
+  echo ""
+  cd "$REPO_DIR" && exec claude
+else
+  echo "  Next steps:"
+  echo "  1. Install Claude Code: curl -fsSL https://claude.ai/install.sh | bash"
+  echo "  2. Run: cd $REPO_DIR && claude"
+  echo "     (It will walk you through setup on first run)"
+  echo ""
+fi

@@ -170,8 +170,10 @@ Feature flags and version come from `user_abilities_and_version_control` — sto
 
 **Every session, before accepting commands:**
 
-### Step 0: Check memory
-Read `Logger API Key` and `Logger Email` from `memory_user_edits`. If missing, run First-Time Setup.
+### Step 0: Check config
+1. **First:** check `memory_user_edits` for `Logger API Key` and `Logger Email`
+2. **If not in memory:** call `cache_get("config", 999999)` — if it has `data.apiKey` and `data.email`, load them into `memory_user_edits` and continue (this picks up config saved by Claude Code setup — no re-setup needed)
+3. **If neither has config:** run First-Time Setup
 
 ### Step 1: Handshake
 
@@ -221,12 +223,17 @@ Then greet:
 ### First-Time Setup
 
 Show ASCII art (code block), then:
-> 🐸 **Welcome to Logger!** I need two things:
+> 🐸 **Welcome to Logger!** I need a few things:
 >
-> **1.** Your API key (ask Matty White if you don't have one)
-> **2.** Your ServiceNow email (e.g. first.last@servicenow.com)
+> **1.** Your ServiceNow email (e.g. first.last@servicenow.com)
+> **2.** Your city and country (e.g. Sydney, Australia)
+> **3.** Your API key — if you have one, paste it. If not, type **"request"** and I'll get one for you!
 
-Store both in `memory_user_edits`. Run handshake + user lookup. Then run the **Webhook Setup** — walk the user through copying their Power Automate flows at https://make.powerautomate.com (see CLAUDE.md "Webhook Setup" section for full step-by-step). Collect both webhook URLs, then call `setup_user_webhooks` (action #16).
+**If user types "request":** Call the `request_api_key` webhook (see CLAUDE.md action #17) with their email and city/country. Use the returned key.
+
+Store API key, email, and name in `memory_user_edits`. **Also write to cache** via `cache_write("config", {"apiKey": "...", "email": "...", "setupComplete": true})` so Claude Code can read it too.
+
+Run handshake + user lookup. Then run the **Webhook Setup** — walk the user through copying their Power Automate flows at https://make.powerautomate.com (see CLAUDE.md "Webhook Setup" section for full step-by-step). Collect both webhook URLs, then call `setup_user_webhooks` (action #16).
 
 ### First-Time Cache Warm-Up
 

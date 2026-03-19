@@ -658,11 +658,15 @@ Once confirmed, continue:
 
 After collecting:
 1. Save to `~/.logger-config`
-2. Run Step 1 (handshake) — if it fails, API key is wrong
-3. Run Step 2 (user lookup) — if it fails, email is wrong
-4. Run the **Webhook Setup** (see below)
-5. Run **First-Time Cache Warm-Up** (see below)
-6. Greet the user
+2. **Also write to `~/.logger/config.json`** so Claude Desktop can read it without re-setup:
+   ```json
+   {"_cachedAt": "{ISO timestamp}", "_key": "config", "data": {"apiKey": "{key}", "email": "{email}", "setupComplete": true}}
+   ```
+3. Run Step 1 (handshake) — if it fails, API key is wrong
+4. Run Step 2 (user lookup) — if it fails, email is wrong
+5. Run the **Webhook Setup** (see below)
+6. Run **First-Time Cache Warm-Up** (see below)
+7. Greet the user
 
 ### First-Time Cache Warm-Up
 
