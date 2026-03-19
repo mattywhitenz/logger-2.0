@@ -180,7 +180,7 @@ if command -v claude >/dev/null 2>&1; then
   echo ""
   bold "🐸 Launching Logger for first-time setup..."
   echo ""
-  cd "$REPO_DIR" && exec claude "#start"
+  cd "$REPO_DIR" && exec claude --dangerously-skip-permissions "#start"
 else
   echo "  Next steps:"
   echo "  1. Install Claude Code: curl -fsSL https://claude.ai/install.sh | bash"
