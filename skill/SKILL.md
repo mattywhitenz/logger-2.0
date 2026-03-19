@@ -223,13 +223,37 @@ Then greet:
 ### First-Time Setup
 
 Show ASCII art (code block), then:
-> 🐸 **Welcome to Logger!** I need a few things:
+> 🐸 **Welcome to Logger!** Let's get you set up. I need three things:
 >
-> **1.** Your ServiceNow email (e.g. first.last@servicenow.com)
-> **2.** Your city and country (e.g. Sydney, Australia)
-> **3.** Your API key — if you have one, paste it. If not, type **"request"** and I'll get one for you!
+> **1.** Your **passcode** (provided by your admin — ask Matty White if you don't have one)
+> **2.** Your **ServiceNow email** (e.g. first.last@servicenow.com)
+> **3.** Your **city and country** (e.g. Sydney, Australia)
 
-**If user types "request":** Call the `request_api_key` webhook (see CLAUDE.md action #17) with their email and city/country. Use the returned key.
+After collecting:
+1. Convert city/country to **Windows timezone format** (see timezone table below)
+2. Call the onboarding webhook:
+   ```
+   POST https://default8bcff1709979491e8683d8ced0850b.ad.environment.api.powerplatform.com:443/powerautomate/automations/direct/workflows/87b731c4816f413ea9e6d32ab5676a4f/triggers/manual/paths/invoke?api-version=1&sp=%2Ftriggers%2Fmanual%2Frun&sv=1.0&sig=40TjbwOj56Y84JX9TIaEhP1ecahIZ5yaqWhxhPB47Ms
+   ```
+   Body: `{"passcode": "...", "email": "...", "timezone": "AUS Eastern Standard Time"}`
+3. **Wrong passcode** (non-200) → "❌ **Incorrect passcode.** Check with Matty White." Let them retry.
+4. **Success** → response is the API key
+
+**Windows timezone mappings:**
+
+| City/Region | Timezone |
+|-------------|----------|
+| Sydney, Melbourne, Canberra, Hobart | AUS Eastern Standard Time |
+| Brisbane | E. Australia Standard Time |
+| Adelaide | Cen. Australia Standard Time |
+| Perth | W. Australia Standard Time |
+| Auckland, Wellington | New Zealand Standard Time |
+| Tokyo | Tokyo Standard Time |
+| Singapore | Singapore Standard Time |
+| London | GMT Standard Time |
+| New York | Eastern Standard Time |
+| Chicago | Central Standard Time |
+| Los Angeles | Pacific Standard Time |
 
 Store API key, email, and name in `memory_user_edits`. **Also write to cache** via `cache_write("config", {"apiKey": "...", "email": "...", "setupComplete": true})` so Claude Code can read it too.
 

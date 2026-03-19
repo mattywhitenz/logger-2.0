@@ -141,7 +141,7 @@ The `headers.id` is the user's unique API key (stored in `~/.logger-config`). It
 | `get_opp_aisummary_by_id` | 🔄 **Generating AI summary (this takes a moment)...** |
 | `opptys_by_accountid` | 🔄 **Checking open opportunities for {account}...** |
 | `setup_user_webhooks` | 🔄 **Registering your webhooks...** |
-| `request_api_key` | 🔄 **Requesting your API key...** |
+| `onboard_user` | 🔄 **Verifying passcode and setting up your account...** |
 
 **Rules:**
 - Show the indicator as text output **before** making the `http_request` tool call
@@ -570,15 +570,15 @@ Use `sn_name` for display and matching. Use `@odata.id` for the `primaryProduct`
 
 ---
 
-### 17. `request_api_key`
+### 17. `onboard_user`
 
-**Requests a new API key for a first-time user. Called during onboarding if the user doesn't have a key.**
+**Onboards a new user. Called FIRST during first-time setup. Validates the master passcode, registers the user, and returns their API key.**
 
 **⚠️ This is a standalone webhook — NOT the main API endpoint and NOT wrapped in the standard `action`/`headers`/`body` structure.** Post directly to its own URL.
 
 **URL:**
 ```
-https://default8bcff1709979491e8683d8ced0850b.ad.environment.api.powerplatform.com:443/powerautomate/automations/direct/workflows/97f579a8038b47d7b360270eba7f95d0/triggers/manual/paths/invoke?api-version=1&sp=%2Ftriggers%2Fmanual%2Frun&sv=1.0&sig=m0r1QscpbTixJknOQkG1UdCbb2KLiKdSTcmDqhvzZlo
+https://default8bcff1709979491e8683d8ced0850b.ad.environment.api.powerplatform.com:443/powerautomate/automations/direct/workflows/87b731c4816f413ea9e6d32ab5676a4f/triggers/manual/paths/invoke?api-version=1&sp=%2Ftriggers%2Fmanual%2Frun&sv=1.0&sig=40TjbwOj56Y84JX9TIaEhP1ecahIZ5yaqWhxhPB47Ms
 ```
 
 **Method:** POST with `Content-Type: application/json`
@@ -586,14 +586,41 @@ https://default8bcff1709979491e8683d8ced0850b.ad.environment.api.powerplatform.c
 **Body:**
 ```json
 {
-  "email": "{user_email}",
-  "citycountry": "{user_city_and_country}"
+  "passcode": "{master_passcode}",
+  "email": "{user_servicenow_email}",
+  "timezone": "{windows_timezone_format}"
 }
 ```
 
-**Response:** Returns the API key as a string in the format `#-###########`.
+**Timezone conversion:** The user provides their city/country. Convert it to **Windows timezone format** before sending. Common mappings:
 
-**When to call:** During first-time setup, if the user says they don't have an API key. Prompt for their ServiceNow email and city/country, then call this. Use the returned key as their `apiKey` in `~/.logger-config`.
+| City/Region | Windows Timezone |
+|-------------|-----------------|
+| Sydney, Melbourne, Canberra, Hobart | AUS Eastern Standard Time |
+| Brisbane | E. Australia Standard Time |
+| Adelaide | Cen. Australia Standard Time |
+| Perth | W. Australia Standard Time |
+| Darwin | AUS Central Standard Time |
+| Auckland, Wellington | New Zealand Standard Time |
+| Tokyo | Tokyo Standard Time |
+| Singapore, Kuala Lumpur | Singapore Standard Time |
+| Mumbai, Delhi | India Standard Time |
+| London | GMT Standard Time |
+| Paris, Berlin, Amsterdam | W. Europe Standard Time |
+| New York, Washington DC | Eastern Standard Time |
+| Chicago, Dallas | Central Standard Time |
+| Denver, Salt Lake City | Mountain Standard Time |
+| Los Angeles, San Francisco | Pacific Standard Time |
+
+If the city isn't listed, look up the correct Windows timezone ID for their location.
+
+**Response:** Returns the API key (format `#-###########`).
+
+**Error handling:**
+- **Wrong passcode:** Non-200 response. Tell the user: "❌ **Incorrect passcode.** Please check with Matty White and try again." Let them retry.
+- **Other errors:** Standard timeout/failure handling.
+
+**When to call:** Always called as the **first step** of first-time setup. Every new user must provide the passcode, their email, and city/country.
 
 ---
 
@@ -626,47 +653,28 @@ Greet the user with the ASCII art (in a code block), then:
 
 If `~/.logger-config` doesn't exist, show the ASCII art (in a code block), then:
 
-> 🐸 **Welcome to Logger!** Before we start, there's one thing you need to do first.
+> 🐸 **Welcome to Logger!** Let's get you set up. I need three things:
 >
-> **Step 1 — Request Power Automate admin access** (required to copy the flows later):
->
-> 1. Open **ServiceNow Self-Service**: go to your ServiceNow instance and open the **Service Catalog** or **Employee Center**
-> 2. Search for **"Power Automate"** or **"Microsoft Power Platform"**
-> 3. Submit a request for **Environment Maker** or **admin access** to Power Automate
-> 4. Wait for approval (usually same-day) before continuing
->
-> **Why?** Logger needs you to copy two shared Power Automate flows into your own account. Without Environment Maker access, you can't save a copy of shared flows.
->
-> Let me know once your access is approved and we'll continue! 🐸
+> **1.** Your **passcode** (provided by your admin — ask Matty White if you don't have one)
+> **2.** Your **ServiceNow email** (e.g. first.last@servicenow.com)
+> **3.** Your **city and country** (e.g. Sydney, Australia)
 
-**Wait for the user to confirm access is approved before proceeding.**
+Collect all three, then:
 
-Once confirmed, continue:
-
-> 🐸 **Great! Now I need a couple more things:**
->
-> **2.** Your ServiceNow email (e.g. first.last@servicenow.com)
-> **3.** Your city and country (e.g. Sydney, Australia)
-> **4.** Your API key — if you have one, paste it. If not, type **"request"** and I'll get one for you!
-
-**If user says they don't have a key (or types "request"):**
-1. You already have their email and city/country from above — use those
-2. Call `request_api_key` with `{"email": "...", "citycountry": "..."}`
-3. The response is their API key (format `#-###########`) — show it to the user and use it going forward
-
-**If user provides their own key:** use it directly.
-
-After collecting:
-1. Save to `~/.logger-config`
-2. **Also write to `~/.logger/config.json`** so Claude Desktop can read it without re-setup:
+1. Convert city/country to **Windows timezone format** (see timezone table in action #17)
+2. Call `onboard_user` with `{"passcode": "...", "email": "...", "timezone": "..."}`
+3. **If wrong passcode** (non-200): tell user "❌ **Incorrect passcode.** Check with Matty White and try again." Let them retry.
+4. **If success:** the response is their API key — save it
+5. Save to `~/.logger-config`
+6. **Also write to `~/.logger/config.json`** so Claude Desktop can read it without re-setup:
    ```json
    {"_cachedAt": "{ISO timestamp}", "_key": "config", "data": {"apiKey": "{key}", "email": "{email}", "setupComplete": true}}
    ```
-3. Run Step 1 (handshake) — if it fails, API key is wrong
-4. Run Step 2 (user lookup) — if it fails, email is wrong
-5. Run the **Webhook Setup** (see below)
-6. Run **First-Time Cache Warm-Up** (see below)
-7. Greet the user
+7. Run Step 1 (handshake) — if it fails, something is wrong with the returned key
+8. Run Step 2 (user lookup) — if it fails, email is wrong
+9. Run the **Webhook Setup** (see below)
+10. Run **First-Time Cache Warm-Up** (see below)
+11. Greet the user
 
 ### First-Time Cache Warm-Up
 

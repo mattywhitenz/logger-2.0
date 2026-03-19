@@ -4,7 +4,7 @@
 
 You need:
 - A **Claude account** (Pro, Max, Team, or Enterprise plan)
-- Your **Logger API key** — ask Matty White for this
+- Your **Logger passcode** — ask Matty White for this
 - Your **ServiceNow email** — e.g. first.last@servicenow.com
 
 ---
@@ -119,9 +119,11 @@ Once Claude starts up, type:
 ```
 
 Logger will ask for:
-1. Your **ServiceNow email** — e.g. `first.last@servicenow.com`
-2. Your **city and country** — e.g. `Sydney, Australia`
-3. Your **API key** — paste it if you have one, or type **`request`** and Logger will get one for you automatically!
+1. Your **passcode** — provided by your admin (Matty White)
+2. Your **ServiceNow email** — e.g. `first.last@servicenow.com`
+3. Your **city and country** — e.g. `Sydney, Australia`
+
+Logger verifies the passcode, registers your account, and generates your API key automatically.
 
 ---
 

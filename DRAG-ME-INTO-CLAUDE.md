@@ -244,15 +244,17 @@ Wait for confirmation before proceeding.
 
 Tell the user:
 
-> 🔑 **Logger needs a couple of things to get you set up:**
+> 🔑 **Logger needs three things to get you set up:**
 >
-> **1. Your ServiceNow email** — e.g. `first.last@servicenow.com`
-> **2. Your city and country** — e.g. `Sydney, Australia`
-> **3. Your API key** — if you have one, paste it in. If not, just type **`request`** and Logger will get one for you automatically via Power Automate!
+> **1. Your passcode** — this was provided by your admin (Matty White). It's a shared password that authorises new users.
+> **2. Your ServiceNow email** — e.g. `first.last@servicenow.com`
+> **3. Your city and country** — e.g. `Sydney, Australia`
+>
+> Logger will verify your passcode, register your account, and generate your personal API key automatically.
 
-**If they type "request":** Logger will call the API key webhook using their email and city/country, then display the key and save it automatically. Walk them through confirming their details.
+**If passcode is wrong:** Logger will say so — ask the user to double-check with Matty White and try again.
 
-**If they have a key:** they paste it and Logger saves it.
+**If passcode is correct:** Logger saves the returned API key and continues with setup.
 
 Wait for confirmation before proceeding.
 
