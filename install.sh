@@ -179,9 +179,8 @@ echo ""
 if command -v claude >/dev/null 2>&1; then
   echo ""
   bold "🐸 Launching Logger for first-time setup..."
-  echo "   Claude will walk you through API key, email, and Power Automate webhook setup."
   echo ""
-  cd "$REPO_DIR" && exec claude
+  cd "$REPO_DIR" && exec claude "#start"
 else
   echo "  Next steps:"
   echo "  1. Install Claude Code: curl -fsSL https://claude.ai/install.sh | bash"
