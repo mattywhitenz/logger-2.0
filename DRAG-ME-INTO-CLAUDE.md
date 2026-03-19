@@ -85,7 +85,13 @@ Ask the user:
 > curl -fsSL https://claude.ai/install.sh | bash
 > ```
 >
-> It'll download for a minute or so. When it's done, check it worked:
+> It'll download for a minute or so. When it's done, run this so your terminal can find it:
+>
+> ```
+> echo 'export PATH="$HOME/.local/bin:$PATH"' >> ~/.zshrc && source ~/.zshrc
+> ```
+>
+> Then check it worked:
 >
 > ```
 > claude --version
@@ -102,7 +108,7 @@ Ask the user:
 > irm https://claude.ai/install.ps1 | iex
 > ```
 >
-> It'll download for a minute or so. When it's done, check it worked:
+> It'll download for a minute or so. When it's done, **close PowerShell and reopen it**, then check it worked:
 >
 > ```
 > claude --version
@@ -144,27 +150,34 @@ Wait for confirmation before proceeding.
 
 ---
 
-## Step 6: Store the folder permanently
+## Step 6: Download Logger
 
 Ask the user:
 
-> 📁 **Let's put Logger somewhere permanent on your machine.**
->
-> Matty should have shared a folder called `logger` with you. If you haven't already, move it to a permanent location.
->
-> I'd recommend your **Documents** folder:
+> 📁 **Now let's get the Logger files onto your machine.**
 
 **Mac:**
-> Open Finder and drag the `logger` folder into **Documents**.
-> The path will be: `~/Documents/logger`
+> In Terminal, type this to download Logger into your Documents folder:
+>
+> ```
+> git clone https://github.com/mattywhitenz/logger-2.0.git ~/Documents/logger
+> ```
+>
+> Let me know once it's done!
 
 **Windows:**
-> Open File Explorer and move the `logger` folder into **Documents**.
-> The path will be: `C:\Users\{YourName}\Documents\logger`
-
-> **Important:** Don't leave it in Downloads — that can get cleaned up. Documents is safe.
+> In PowerShell, type this to download Logger into your Documents folder:
 >
-> Let me know once it's in place.
+> ```
+> git clone https://github.com/mattywhitenz/logger-2.0.git "$HOME\Documents\logger"
+> ```
+>
+> Let me know once it's done!
+
+> **No git?** Download the ZIP instead:
+> 1. Go to **https://github.com/mattywhitenz/logger-2.0**
+> 2. Click the green **Code** button → **Download ZIP**
+> 3. Unzip it and move the folder to **Documents**, renaming it to `logger`
 
 Wait for confirmation before proceeding.
 
@@ -214,9 +227,11 @@ Tell the user:
 >
 > **Click the Logger icon** you just pinned (Dock on Mac, Taskbar on Windows).
 >
-> A terminal window will open and Claude will start up. Once it's ready, type:
+> A terminal window opens. You'll see a message asking if you trust the files in this folder — **type `yes` and press Enter.**
+>
+> Claude will start up (takes 10-15 seconds). Once you see the prompt, type:
 > ```
-> #project:start
+> #start
 > ```
 >
 > Let me know what happens!
@@ -225,17 +240,19 @@ Wait for confirmation before proceeding.
 
 ---
 
-## Step 9: Enter your API key
+## Step 9: Set up your account
 
 Tell the user:
 
-> 🔑 **Claude will now ask you for two things:**
+> 🔑 **Logger needs a couple of things to get you set up:**
 >
-> **1. Your API key** — this is a unique code Matty White gave you. It looks like a long string of letters and numbers. Paste it in when asked.
->
-> **2. Your ServiceNow email** — e.g. `first.last@servicenow.com`
->
-> Don't have your API key? Ask **Matty White** — he'll set you up.
+> **1. Your ServiceNow email** — e.g. `first.last@servicenow.com`
+> **2. Your city and country** — e.g. `Sydney, Australia`
+> **3. Your API key** — if you have one, paste it in. If not, just type **`request`** and Logger will get one for you automatically via Power Automate!
+
+**If they type "request":** Logger will call the API key webhook using their email and city/country, then display the key and save it automatically. Walk them through confirming their details.
+
+**If they have a key:** they paste it and Logger saves it.
 
 Wait for confirmation before proceeding.
 
@@ -368,12 +385,9 @@ Wait for the user to decide. If they want to set up Desktop, run `#project:setup
 
 If the user reports issues at any point:
 
-**"npm: command not found" / "npm is not recognized"**
-> Node.js isn't installed yet. Go back to Step 3.
-
-**"permission denied" during npm install**
-> Mac: Try with `sudo`: `sudo npm install -g @anthropic-ai/claude-code`
-> Windows: Reopen PowerShell as Administrator (right-click → Run as Administrator)
+**`claude: command not found` after install**
+> Mac: Run `echo 'export PATH="$HOME/.local/bin:$PATH"' >> ~/.zshrc && source ~/.zshrc` then try again.
+> Windows: Close PowerShell and reopen it, then try `claude --version` again.
 
 **"Unable to connect" when starting Logger**
 > Check your API key is correct. Ask Matty White to verify it.

@@ -41,11 +41,16 @@ After installing, **close and reopen your terminal**, then check again: `node --
 ```
 curl -fsSL https://claude.ai/install.sh | bash
 ```
+Then add it to your PATH so your terminal can find it:
+```
+echo 'export PATH="$HOME/.local/bin:$PATH"' >> ~/.zshrc && source ~/.zshrc
+```
 
 **Windows:**
 ```
 irm https://claude.ai/install.ps1 | iex
 ```
+Close PowerShell and reopen it after install.
 
 Check it worked:
 ```
@@ -72,13 +77,19 @@ You're now signed in and ready. Close this terminal window.
 
 ---
 
-## Step 5: Store the folder
+## Step 5: Download Logger
 
-Move the `logger` folder to your **Documents** folder:
-- **Mac:** `~/Documents/logger`
-- **Windows:** `C:\Users\{YourName}\Documents\logger`
+**Mac:**
+```
+git clone https://github.com/mattywhitenz/logger-2.0.git ~/Documents/logger
+```
 
-Don't leave it in Downloads.
+**Windows:**
+```
+git clone https://github.com/mattywhitenz/logger-2.0.git "$HOME\Documents\logger"
+```
+
+**No git?** Go to [github.com/mattywhitenz/logger-2.0](https://github.com/mattywhitenz/logger-2.0), click **Code → Download ZIP**, unzip and move to Documents as `logger`.
 
 ---
 
@@ -100,12 +111,17 @@ Then double-click the Desktop shortcut, right-click it in the Taskbar → Pin to
 
 ## Step 7: First run
 
-Click the Logger icon in your Dock/Taskbar. Then type:
+Click the Logger icon in your Dock/Taskbar. A terminal opens — when asked if you trust the files, **type `yes` and press Enter.**
+
+Once Claude starts up, type:
 ```
-#project:start
+#start
 ```
 
-Enter your **API key** and **ServiceNow email** when prompted.
+Logger will ask for:
+1. Your **ServiceNow email** — e.g. `first.last@servicenow.com`
+2. Your **city and country** — e.g. `Sydney, Australia`
+3. Your **API key** — paste it if you have one, or type **`request`** and Logger will get one for you automatically!
 
 ---
 
