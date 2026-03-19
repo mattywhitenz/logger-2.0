@@ -82,10 +82,8 @@ Ask the user:
 > Type this and press Enter:
 >
 > ```
-> sudo npm install -g @anthropic-ai/claude-code
+> curl -fsSL https://claude.ai/install.sh | bash
 > ```
->
-> It'll ask for your Mac password (the one you use to log in). Type it and press Enter — you won't see any characters appear, that's normal.
 >
 > It'll download for a minute or so. When it's done, check it worked:
 >
@@ -98,12 +96,10 @@ Ask the user:
 **Windows:**
 > 🔧 **Now let's install Claude Code.** This is the tool that runs Logger.
 >
-> First, close PowerShell. Then reopen it by right-clicking **Windows PowerShell** in the Start menu and choosing **Run as Administrator**.
->
 > Type this and press Enter:
 >
 > ```
-> npm install -g @anthropic-ai/claude-code
+> irm https://claude.ai/install.ps1 | iex
 > ```
 >
 > It'll download for a minute or so. When it's done, check it worked:

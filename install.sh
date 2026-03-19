@@ -24,9 +24,21 @@ echo ""
 # ── Prerequisites ─────────────────────────────────────────────────────────────
 echo "Checking prerequisites..."
 
-command -v node >/dev/null 2>&1 || die "Node.js is required. Install from https://nodejs.org (v18+)"
+if ! command -v node >/dev/null 2>&1; then
+  yellow "  ⚠️  Node.js not found — installing..."
+  if command -v brew >/dev/null 2>&1; then
+    brew install node --quiet
+  else
+    yellow "     Homebrew not found. Installing Homebrew first..."
+    /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
+    # Add brew to PATH for this session (Apple Silicon default location)
+    eval "$(/opt/homebrew/bin/brew shellenv 2>/dev/null || /usr/local/bin/brew shellenv 2>/dev/null || true)"
+    brew install node --quiet
+  fi
+fi
+command -v node >/dev/null 2>&1 || die "Node.js install failed. Please install manually from https://nodejs.org (v18+)"
 NODE_VER=$(node --version | sed 's/v//' | cut -d. -f1)
-[ "$NODE_VER" -ge 18 ] || die "Node.js v18+ required (found v$NODE_VER)"
+[ "$NODE_VER" -ge 18 ] || die "Node.js v18+ required (found v$NODE_VER). Download LTS from https://nodejs.org"
 green "  ✅ Node.js $(node --version)"
 
 command -v git >/dev/null 2>&1 || die "git is required."
@@ -44,17 +56,17 @@ if command -v claude >/dev/null 2>&1; then
   green "  ✅ Claude Code $(claude --version 2>/dev/null | head -1 || echo '')"
 else
   yellow "  ⚠️  Claude Code not found."
-  read -r -p "     Install it now via npm? [Y/n] " INSTALL_CLAUDE || true
+  read -r -p "     Install it now? [Y/n] " INSTALL_CLAUDE || true
   if [[ "$(echo "$INSTALL_CLAUDE" | tr '[:upper:]' '[:lower:]')" != "n" ]]; then
     echo "     Installing Claude Code..."
-    if npm install -g @anthropic-ai/claude-code --silent; then
+    if curl -fsSL https://claude.ai/install.sh | bash; then
       green "  ✅ Claude Code installed"
       echo "     👉 Run 'claude' to log in before using Logger."
     else
-      red "  ❌ Install failed. Visit https://claude.ai/code to install manually."
+      red "  ❌ Install failed. Visit https://claude.ai/download to install manually."
     fi
   else
-    yellow "     Skipped. Install Claude Code later from https://claude.ai/code"
+    yellow "     Skipped. Install Claude Code later: curl -fsSL https://claude.ai/install.sh | bash"
     echo "     Logger is installed but won't work until Claude Code is set up."
   fi
 fi

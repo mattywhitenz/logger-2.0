@@ -39,14 +39,12 @@ After installing, **close and reopen your terminal**, then check again: `node --
 
 **Mac:**
 ```
-sudo npm install -g @anthropic-ai/claude-code
+curl -fsSL https://claude.ai/install.sh | bash
 ```
-It will ask for your Mac password — type it and press Enter (you won't see any characters, that's normal).
 
 **Windows:**
-Open PowerShell as Administrator (right-click → Run as Administrator), then:
 ```
-npm install -g @anthropic-ai/claude-code
+irm https://claude.ai/install.ps1 | iex
 ```
 
 Check it worked:
@@ -141,8 +139,8 @@ Click the Logger icon in your Dock (Mac) or Taskbar (Windows). That's it.
 
 | Problem | Fix |
 |---------|-----|
-| `npm: command not found` / `not recognized` | Node.js isn't installed — go back to Step 2 |
-| Permission denied on install | Mac: `sudo`. Windows: run as Administrator |
+| `curl: command not found` | Very old macOS — update your OS or install curl |
+| `irm` not recognised | Open PowerShell (not Command Prompt) and try again |
 | "Unable to connect" | Check your API key — ask Matty White |
 | App icon doesn't work | Open terminal manually: `cd ~/Documents/logger && claude --dangerously-skip-permissions` |
 | Can't see #calendar or #requests | Per-user features — ask Matty White to enable |
