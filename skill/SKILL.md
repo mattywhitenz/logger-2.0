@@ -290,7 +290,7 @@ Body: `{"scfullname": "Name"}` | Response: profile + requests text | **No cache 
 
 ### 4. `calendar_this_week`
 Body: `{"start": "ISO7dp", "end": "ISO7dp"}` | Response: appointment array | **Always live.** Cache result after fetch for logged tracking.
-ISO format: `2026-03-11T00:00:00.0000000` — 7 decimal places, NO timezone.
+ISO format: 7 decimal places, NO timezone suffix. **Times must be in UTC.** Convert user's local date to UTC using their onboarding timezone. E.g. March 11 for Sydney (AEDT, UTC+11): start `2026-03-10T13:00:00.0000000`, end `2026-03-11T12:59:59.9999999`. Account for daylight saving.
 **Show ALL appointments.** Engagement-tagged (⭐) first, others below.
 
 ### 5. `list_engagements_by_opp_id`

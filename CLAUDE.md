@@ -280,13 +280,17 @@ Store `odataid` and profile in `~/.logger-config`.
   "action": "calendar_this_week",
   "headers": {"id": "{apiKey}"},
   "body": {
-    "start": "2026-03-11T00:00:00.0000000",
-    "end": "2026-03-11T23:59:59.9999999"
+    "start": "2026-03-10T13:00:00.0000000",
+    "end": "2026-03-11T12:59:59.9999999"
   }
 }
 ```
 
-**ISO format:** 7 decimal places, NO timezone.
+**ISO format:** 7 decimal places, NO timezone suffix. **Times must be in UTC.** Convert the user's local date to UTC before sending. For example, to fetch March 11 for a user in Sydney (AEDT, UTC+11):
+- Local start: `2026-03-11T00:00:00` → UTC: `2026-03-10T13:00:00.0000000`
+- Local end: `2026-03-11T23:59:59` → UTC: `2026-03-11T12:59:59.9999999`
+
+Use the user's timezone from their onboarding city to determine the correct UTC offset. Account for daylight saving (e.g. Sydney is UTC+11 AEDT in summer, UTC+10 AEST in winter).
 
 **Response:**
 ```json
